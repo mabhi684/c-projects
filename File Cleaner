@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+#include<stdlib.h>
+int main ()
+{
+   char command[50];
+    int i,j,user_input;
+  // strcpy( command, "dir" );
+  printf("File Cleaner\n");
+  printf("Enter Your Choice\n");
+  printf("1 to view Temporary Files\n\n");
+  printf("2 to delete Temprorary File\n\n\n");
+  printf("3 to view Caches\n\n\n");
+  printf("4 to delete Caches files\n\n");
+  printf("5 to view Pre-Fetch files\n\n\n");
+  printf("6 to delete Pre-Fetch files\n\n\n"); 
+  LABEL:
+  scanf("%d",&user_input); // Take input from user
+   if(!system(NULL))
+  {
+  printf("No Command!!");
+  }
+  switch(user_input)
+  {
+  	case 1:
+  		i = system("dir /s Temporary Folder Location");
+  		break;
+  	case 2:
+  	i = system("rmdir /s /q temp");
+  	j = system("mkdir Temporary file location");
+  	printf("Temporary Files Deleted!!!");
+	  break;
+	case 3:
+  		i = system("dir /s cache folder Location");
+  		break;
+	case 4:
+	i = system("rmdir /s /q Caches");
+	j = system("mkdir Temporary file location");
+	printf("Caches Files Deleted!!!");
+	break;
+	case 5:
+  		i = system("dir /s prefetch location");
+  		break;
+	case 6:
+	i = system("rmdir /s /q C:\\Windows\\Prefetch");
+	j = system("mkdir C:\\Windows\\Prefetch");
+	printf("Prefetch Files Deleted!!!");
+	break;
+	default:
+	printf("Wrong Choice \n");
+	printf("Want to delete more");
+	goto LABEL;
+	break;	
+  }
+   return(0);
+}
